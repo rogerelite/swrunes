@@ -8,13 +8,14 @@ Edição de runas<br />
 
 <form action="acoes/edita_runa.php" method="post">
     <?php
-        $sql = "SELECT * FROM runas";
+        $sql = "SELECT runas.`idRuna`, tiposruna.`Tipo`, monstros.`Nome` FROM ((runas INNER JOIN monstros ON runas.`Monstro` = monstros.`idMonstro`) INNER JOIN tiposruna ON runas.`Tipo` = tiposruna.`idTipo`)";
         $result = mysqli_query($connect, $sql);
         while($dados = mysqli_fetch_array($result)):
     ?>
     <hr>
     
     Runa: <?php echo $dados['Tipo']; ?>
+    Monstro: <?php echo $dados['Nome']; ?>
     Atributo Principal: <?php echo $dados['AtribPrincipal'] ?>
     Atributo Secundário: <?php echo $dados['AtribSecundario'] ?>
     Sub-Atributo 1: <?php echo $dados['SubAtrib1'] ?>
