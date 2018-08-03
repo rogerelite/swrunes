@@ -1,6 +1,6 @@
 /*
-SQLyog Professional v12.09 (64 bit)
-MySQL - 10.1.25-MariaDB : Database - sw_runes
+SQLyog Ultimate v12.09 (64 bit)
+MySQL - 10.1.24-MariaDB : Database - sw_runes
 *********************************************************************
 */
 
@@ -12,6 +12,8 @@ MySQL - 10.1.25-MariaDB : Database - sw_runes
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`sw_runes` /*!40100 DEFAULT CHARACTER SET utf8 */;
+
 USE `sw_runes`;
 
 /*Table structure for table `atribmonstros` */
@@ -37,11 +39,11 @@ CREATE TABLE `atribrunas` (
   `Atributo` varchar(5) DEFAULT NULL,
   `Flat` char(5) DEFAULT NULL,
   PRIMARY KEY (`idAtributo`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 /*Data for the table `atribrunas` */
 
-insert  into `atribrunas`(`idAtributo`,`Atributo`,`Flat`) values (1,'HP',''),(2,'HP','%'),(3,'DEF',''),(4,'DEF','%'),(5,'ATK',''),(6,'ATK','%'),(7,'TAX','%'),(8,'DAN','%'),(9,'SPD',''),(10,'RES','%'),(11,'PRE','%');
+insert  into `atribrunas`(`idAtributo`,`Atributo`,`Flat`) values (1,'',''),(2,'HP',''),(3,'HP','%'),(4,'DEF',''),(5,'DEF','%'),(6,'ATK',''),(7,'ATK','%'),(8,'TAX','%'),(9,'DAN','%'),(10,'SPD',''),(11,'RES','%'),(12,'PRE','%');
 
 /*Table structure for table `chefes` */
 
@@ -197,10 +199,13 @@ DROP TABLE IF EXISTS `tiposruna`;
 CREATE TABLE `tiposruna` (
   `idTipo` int(10) NOT NULL AUTO_INCREMENT,
   `Tipo` varchar(20) DEFAULT NULL,
+  `Efeito` varchar(250) DEFAULT NULL,
   PRIMARY KEY (`idTipo`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 
 /*Data for the table `tiposruna` */
+
+insert  into `tiposruna`(`idTipo`,`Tipo`,`Efeito`) values (1,'',NULL),(2,'Revenge',NULL),(3,'Despair',NULL),(4,'Focus',NULL),(5,'Guard',NULL),(6,'Blade',NULL),(7,'Will',NULL),(8,'Swift',NULL),(9,'Rage',NULL),(10,'Vampire',NULL),(11,'Destroy',NULL),(12,'Nêmesis',NULL),(13,'Energy',NULL),(14,'Fatal',NULL),(15,'Endure',NULL),(16,'Shield',NULL),(17,'Violent',NULL),(18,'Determination',NULL),(19,'Enhance',NULL),(20,'Accuracy',NULL),(21,'Tolerance',NULL),(22,'Fight',NULL);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
