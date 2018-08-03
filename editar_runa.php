@@ -21,5 +21,7 @@ Edição de runas<br />
     Sub-Atributo 2: <?php echo $dados['SubAtrib1'] ?>
     Sub-Atributo 3: <?php echo $dados['SubAtrib1'] ?>
     Sub-Atributo 4: <?php echo $dados['SubAtrib1'] ?>
+    <a href="acoes/edita_runa.php">Editar</a>
+    <a href="acoes/exclui_runa.php">Excluir</a>
     <?php endwhile; ?>
 </form>

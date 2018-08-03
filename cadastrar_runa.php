@@ -17,6 +17,27 @@ Cadastre a runa
             <?php endwhile; ?>
     </select>
 
+    Monstro a qual vai pertencer:
+    <select name="monstro" id="monstro">
+        <?php
+            $sql = "SELECT idMonstro, Nome FROM monstros";
+            $result = mysqli_query($connect, $sql); 
+            while($dados = mysqli_fetch_array($result)): 
+        ?>
+        <option value="<?php echo $dados['idMonstro']; ?>"><?php echo $dados['Nome']; ?></option>
+        <?php endwhile; ?>
+    </select>
+
+    Slot:
+    <select name="slot" id="slot">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+    </select>
+
     Atributo Principal:
     <select name="atribPrincipal" id="atribPrincipal">
         <?php
