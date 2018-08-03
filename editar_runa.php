@@ -4,9 +4,9 @@
 ?>
 
 Edição de runas<br />
-<a href="adicionar_runa.php">Adicionar runa</a>
+<a href="cadastrar_runa.php">Cadastrar runa</a>
 
-<form action="acoes/editar_runas.php" method="post">
+<form action="acoes/edita_runa.php" method="post">
     <?php
         $sql = "SELECT * FROM runas";
         $result = mysqli_query($connect, $sql);
