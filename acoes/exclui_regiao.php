@@ -7,6 +7,9 @@ if(isset($_POST['excluir'])):
 
     $sql = "DELETE FROM regioes WHERE idRegiao = '$id'";
 
+    var_dump($sql);
+    die();
+
     if(mysqli_query($connect, $sql)):
         header('Location: index.php?Sucesso');
 	else:

@@ -1,6 +1,6 @@
 /*
-SQLyog Professional v12.09 (64 bit)
-MySQL - 10.1.25-MariaDB : Database - sw_runes
+SQLyog Ultimate v12.09 (64 bit)
+MySQL - 10.1.24-MariaDB : Database - sw_runes
 *********************************************************************
 */
 
@@ -12,6 +12,8 @@ MySQL - 10.1.25-MariaDB : Database - sw_runes
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`sw_runes` /*!40100 DEFAULT CHARACTER SET utf8 */;
+
 USE `sw_runes`;
 
 /*Table structure for table `atribmonstros` */
@@ -84,9 +86,11 @@ CREATE TABLE `regioes` (
   `idRegiao` int(10) NOT NULL AUTO_INCREMENT,
   `Regiao` varchar(25) DEFAULT NULL,
   PRIMARY KEY (`idRegiao`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 /*Data for the table `regioes` */
+
+insert  into `regioes`(`idRegiao`,`Regiao`) values (1,'Masmorra de outros mundos'),(2,'Salão da mágica'),(3,'Salão do vento'),(4,'Salão do fogo'),(5,'Salão da água'),(6,'Salão da escuridão'),(7,'Salão da luz'),(8,'Labirinto'),(9,'Torre da Ascensão fácil'),(12,'Torre da Ascensão difícil');
 
 /*Table structure for table `runas` */
 
@@ -120,11 +124,11 @@ CREATE TABLE `runas` (
   CONSTRAINT `Runas_fk5` FOREIGN KEY (`SubAtrib2`) REFERENCES `atribrunas` (`idAtributo`),
   CONSTRAINT `Runas_fk6` FOREIGN KEY (`SubAtrib3`) REFERENCES `atribrunas` (`idAtributo`),
   CONSTRAINT `Runas_fk7` FOREIGN KEY (`SubAtrib4`) REFERENCES `atribrunas` (`idAtributo`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 /*Data for the table `runas` */
 
-insert  into `runas`(`idRuna`,`Tipo`,`Monstro`,`Slot`,`AtribPrincipal`,`AtribSecundario`,`SubAtrib1`,`SubAtrib2`,`SubAtrib3`,`SubAtrib4`) values (7,2,1,1,1,4,5,1,11,1),(11,2,2,1,4,10,1,1,1,1);
+insert  into `runas`(`idRuna`,`Tipo`,`Monstro`,`Slot`,`AtribPrincipal`,`AtribSecundario`,`SubAtrib1`,`SubAtrib2`,`SubAtrib3`,`SubAtrib4`) values (7,2,1,1,1,3,6,1,11,1),(13,4,1,5,3,10,7,5,4,1);
 
 /*Table structure for table `timeschefes` */
 
@@ -164,11 +168,11 @@ CREATE TABLE `tiposruna` (
   `Tipo` varchar(20) DEFAULT NULL,
   `Efeito` varchar(250) DEFAULT NULL,
   PRIMARY KEY (`idTipo`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 /*Data for the table `tiposruna` */
 
-insert  into `tiposruna`(`idTipo`,`Tipo`,`Efeito`) values (1,'Violent','Dá uma rodada extra'),(2,'Revenge','Contra ataca');
+insert  into `tiposruna`(`idTipo`,`Tipo`,`Efeito`) values (1,'Violent','Dá uma rodada extra'),(2,'Revenge','Contra ataca'),(3,'Focus','Aumenta a precisão'),(4,'Will','Dá imunidade por uma rodada');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
