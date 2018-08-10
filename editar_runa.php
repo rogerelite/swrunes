@@ -1,12 +1,12 @@
 <?php
 	include_once 'includes/header.php';
 	include_once 'includes/menu_top.php';
+    $id = $_GET['idRuna'];
 ?>
 
-Edição de runas<br />
+Editar runa<br />
 <hr>
 <?php
-$id = $_GET['idRuna'];
 $sql = "SELECT r.idRuna AS idRuna,  t.Tipo AS Tipo, m.Nome AS Monstro, r.Slot AS Slot,  atp.Atributo AS AtribPrincipal, atpf.Flat AS Flat, ats.Atributo AS AtribSecundario, atsf.Flat AS Flat, sa1.Atributo AS SubAtrib1, sa1f.Flat AS Flat, sa2.Atributo AS SubAtrib2, sa2f.Flat AS Flat, sa3.Atributo AS SubAtrib3, sa3f.Flat AS Flat, sa4.Atributo AS SubAtrib4, sa4f.Flat AS Flat
 FROM runas AS r
 JOIN tiposruna AS t ON r.Tipo = t.idTipo
@@ -27,33 +27,24 @@ WHERE idRuna = '$id'";
 
 $result = mysqli_query($connect, $sql);
 while($dados = mysqli_fetch_array($result)):
+    $tipo = $dados['Tipo'];
+    $mob = $dados['Monstro'];
+    $slot = $dados['Slot'];
+    $ap = $dados['AtribPrincipal'];
+    $as = $dados['AtribSecundario'];
+    $sa1 = $dados['SubAtrib1'];
+    $sa2 = $dados['SubAtrib2'];
+    $sa3 = $dados['SubAtrib3'];
+    $sa4 = $dados['SubAtrib4'];
+endwhile;
 ?>
-    Atualmente:
-    <input type="hidden" name="idRuna" value="<?php echo $dados['idRuna']; ?>"><br>
-    Tipo: <?php echo $dados['Tipo'];?>
-    <br>
-    Monstro: <?php echo $dados['Monstro'];?>
-    <br>
-    Slot: <?php echo $dados['Slot'];?>
-    <br>
-    Atributo Principal: <?php echo $dados['AtribPrincipal']; ?><?php echo $dados['Flat']; ?><br>
-    Atributo Secundário: <?php echo $dados['AtribSecundario']; ?><?php echo $dados['Flat']; ?><br>
-    Sub-Atributo 1: <?php echo $dados['SubAtrib1']; ?><?php echo $dados['Flat']; ?><br>
-    Sub-Atributo 2: <?php echo $dados['SubAtrib2']; ?><?php echo $dados['Flat']; ?><br>
-    Sub-Atributo 3: <?php echo $dados['SubAtrib3']; ?><?php echo $dados['Flat']; ?><br>
-    Sub-Atributo 4: <?php echo $dados['SubAtrib4']; ?><?php echo $dados['Flat']; ?><br>
-    <hr>
-    
-    
-    <?php endwhile; ?>
 
 <form action="acoes/edita_runa.php" method="post">
-    Mudar para:<br>
     <input type="hidden" name="idRuna" value="<?php echo $id; ?>">
     Tipo: 
     <select name="tipo" id="tipo">
         <?php
-            $sql = "SELECT idTipo, Tipo FROM tiposruna ORDER BY Tipo";
+            $sql = "SELECT idTipo, Tipo FROM tiposruna ORDER BY Tipo != '$tipo'";
             $result = mysqli_query($connect, $sql);
             while($dados = mysqli_fetch_array($result)):
         ?>
@@ -64,7 +55,7 @@ while($dados = mysqli_fetch_array($result)):
     Monstro a qual vai pertencer:
     <select name="monstro" id="monstro">
         <?php
-            $sql = "SELECT idMonstro, Nome FROM monstros";
+            $sql = "SELECT idMonstro, Nome FROM monstros ORDER BY Nome != '$mob'";
             $result = mysqli_query($connect, $sql); 
             while($dados = mysqli_fetch_array($result)): 
         ?>
@@ -85,7 +76,7 @@ while($dados = mysqli_fetch_array($result)):
     Atributo Principal:
     <select name="atribPrincipal" id="atribPrincipal">
         <?php
-            $sql = "SELECT * FROM atribrunas";
+            $sql = "SELECT * FROM atribrunas ORDER BY Atributo != '$ap'";
             $result = mysqli_query($connect, $sql); 
             while($dados = mysqli_fetch_array($result)): 
         ?>
@@ -96,7 +87,7 @@ while($dados = mysqli_fetch_array($result)):
     Atributo Secundário:
     <select name="atribSecundario" id="atribSecundario">
         <?php 
-            $sql = "SELECT * FROM atribrunas";
+            $sql = "SELECT * FROM atribrunas ORDER BY Atributo != '$as'";
             $result = mysqli_query($connect, $sql);
             while($dados = mysqli_fetch_array($result)): 
         ?>
@@ -107,7 +98,7 @@ while($dados = mysqli_fetch_array($result)):
     Sub-Atributo 1:
     <select name="subAtrib1" id="subAtrib1">
         <?php
-            $sql = "SELECT * FROM atribrunas";
+            $sql = "SELECT * FROM atribrunas ORDER BY Atributo != '$sa1'";
             $result = mysqli_query($connect, $sql);
             while($dados = mysqli_fetch_array($result)):
         ?>
@@ -118,7 +109,7 @@ while($dados = mysqli_fetch_array($result)):
     Sub-Atributo 2:
     <select name="subAtrib2" id="subAtrib2">
         <?php
-            $sql = "SELECT * FROM atribrunas";
+            $sql = "SELECT * FROM atribrunas ORDER BY Atributo != '$sa2'";
             $result = mysqli_query($connect, $sql);
             while($dados = mysqli_fetch_array($result)):
         ?>
@@ -129,7 +120,7 @@ while($dados = mysqli_fetch_array($result)):
     Sub-Atributo 3:
     <select name="subAtrib3" id="subAtrib3">
         <?php
-            $sql = "SELECT * FROM atribrunas";
+            $sql = "SELECT * FROM atribrunas ORDER BY Atributo != '$sa3'";
             $result = mysqli_query($connect, $sql);
             while($dados = mysqli_fetch_array($result)):
         ?>
@@ -140,7 +131,7 @@ while($dados = mysqli_fetch_array($result)):
     Sub-Atributo 4:
     <select name="subAtrib4" id="subAtrib4">
         <?php
-            $sql = "SELECT * FROM atribrunas";
+            $sql = "SELECT * FROM atribrunas ORDER BY Atributo != '$sa4'";
             $result = mysqli_query($connect, $sql);
             while($dados = mysqli_fetch_array($result)):
         ?>

@@ -30,6 +30,7 @@ Listagem de runas<br />
     <hr>
     
     <input type="hidden" name="idRuna" value="<?php echo $dados['idRuna']; ?>"><br>
+    <input type="hidden" name="Tipo" value="<?php echo $dados['Tipo']; ?>"><br>
     Runa: <?php echo $dados['Tipo']; ?><br>
     Monstro: <?php echo $dados['Monstro']; ?><br>
     Atributo Principal: <?php echo $dados['AtribPrincipal']; ?><?php echo $dados['Flat']; ?><br>
@@ -38,7 +39,7 @@ Listagem de runas<br />
     Sub-Atributo 2: <?php echo $dados['SubAtrib2']; ?><?php echo $dados['Flat']; ?><br>
     Sub-Atributo 3: <?php echo $dados['SubAtrib3']; ?><?php echo $dados['Flat']; ?><br>
     Sub-Atributo 4: <?php echo $dados['SubAtrib4']; ?><?php echo $dados['Flat']; ?><br>
-    <a href="editar_runa.php?idRuna=<?php echo $dados['idRuna']; ?>"> value="<?php echo $dados['idRuna']; ?>">Editar</a>
+    <a href="editar_runa.php?idRuna=<?php echo $dados['idRuna']; ?>&Monstro=<?php echo $dados['Monstro']; ?>"> value="<?php echo $dados['idRuna']; ?>">Editar</a>
     <input type="submit" name="excluir" value="Excluir">
     <?php endwhile; ?>
 </form>
