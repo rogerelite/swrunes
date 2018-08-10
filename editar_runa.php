@@ -4,7 +4,7 @@
     $id = $_GET['idRuna'];
 ?>
 
-Editar runa<br />
+Editar runa
 <hr>
 <?php
 $sql = "SELECT r.idRuna AS idRuna,  t.Tipo AS Tipo, m.Nome AS Monstro, r.Slot AS Slot,  atp.Atributo AS AtribPrincipal, atpf.Flat AS Flat, ats.Atributo AS AtribSecundario, atsf.Flat AS Flat, sa1.Atributo AS SubAtrib1, sa1f.Flat AS Flat, sa2.Atributo AS SubAtrib2, sa2f.Flat AS Flat, sa3.Atributo AS SubAtrib3, sa3f.Flat AS Flat, sa4.Atributo AS SubAtrib4, sa4f.Flat AS Flat
